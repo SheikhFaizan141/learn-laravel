@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: orangered; */
+    width: 80%;
+    margin: 0 auto;
+}
+
+article {
+    margin-bottom: 2rem;
+}
+
+article + article {
+    border-top: 1px solid black;
+}
