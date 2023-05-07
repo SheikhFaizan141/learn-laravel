@@ -8,7 +8,7 @@
 
     <div class="py-6 px-5">
         <div>
-            <img src="/images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl">
+            <img src="{{ asset('storage/' . $post->thumbnail )}}" alt="Blog Post illustration" class="rounded-xl">
         </div>
 
         <div class="mt-8 flex flex-col justify-between">
@@ -19,7 +19,9 @@
 
                 <div class="mt-4">
                     <h1 class="text-3xl">
-                        {{ $post->title }}
+                        <a href="/posts/{{ $post->slug }}">
+                            {{ $post->title }}
+                        </a>
                     </h1>
 
                     <span class="mt-2 block text-gray-400 text-xs">
