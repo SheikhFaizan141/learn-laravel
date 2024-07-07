@@ -19,11 +19,11 @@ use MailchimpMarketing\ApiClient;
 |
 */
 
-// Route::post('newsletter', function () {
-//     $name = new ApiClient();
-// });
+Route::post('newsletter', function () {
+    $name = new ApiClient();
+});
 
-// Route::get('/', fn() => throw new \Exception('loda'));
+Route::get('/', fn () => throw new \Exception('loda'));
 Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('posts/{post:slug}', [PostController::class, 'show']);
@@ -41,20 +41,6 @@ Route::post('login', [SessionController::class, 'store']);
 Route::post('logout', [SessionController::class, 'destroy'])->middleware('auth');
 
 // Admin
-Route::middleware('can:admin', function () {
-
+Route::middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
-
-    
-    // Route::post('admin/posts', [AdminPostController::class, 'store']);
-
-    // Route::get('admin/posts', [AdminPostController::class, 'index']);
-
-    // Route::get('admin/posts/create', [AdminPostController::class, 'create']);
-
-    // Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit']);
-
-    // Route::patch('admin/posts/{post}', [AdminPostController::class, 'update']);
-
-    // Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy']);
 });
